@@ -11,18 +11,26 @@ public class ass4 {
             arr[i] = sc.nextInt();
         }
 
-        for (int i = 1; i < n; i++) {
-            int j = i;
+        for (int pass = 0; pass < n-1; pass++) {
+            boolean swapped = false;
 
-            while (j > 0 && arr[j - 1] > arr[j]) {
-                int temp = arr[j - 1];
-                arr[j - 1] = arr[j];
-                arr[j] = temp;
-
-                j--;
+            for(int i = 0;i< n-1-pass;i++) {
+                if(arr[i] > arr[i+1]){
+                    int temp = arr[i];
+                    arr[i]=arr[i+1];
+                    arr[i+1]=temp;
+                    swapped = true;
+                }
             }
+            if(!swapped){
+                break;
+            }
+            System.out.print("pass :");
+            System.out.println(pass);
+            System.out.println(arr.toString());
+            
         }
 
-        System.out.println(Arrays.toString(arr));
+    System.out.println(arr.toString());
     }
 }
